@@ -1,6 +1,6 @@
 import Component from '../lib/component.js';
 import store from '../store/index.js';
-
+import eventDelegate from '../ts/todo.js';
 export default class List extends Component {
 
     // Pass our store instance and the HTML element up to the parent Component
@@ -30,7 +30,7 @@ export default class List extends Component {
             <ul class="app__items">
                 ${store.state.items.map(item => {
                     return `
-                        <li>${item}<button aria-label="Delete this item">×</button></li>
+                        <li><p class="value">${item}</p><button aria-label="Delete this item">×</button></li>
                     `
                 }).join('')}
             </ul>
@@ -43,5 +43,6 @@ export default class List extends Component {
                 store.dispatch('clearItem', { index });
             });
         });
+        eventDelegate("li","p","click", "editItem");
     }
 };

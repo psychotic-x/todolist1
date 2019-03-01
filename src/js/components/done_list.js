@@ -18,6 +18,14 @@ export default class Done_List extends Component {
      */
     render() {
         let self = this;
-        this.render();
+        self.element.innerHTML = `
+            <ul class="aqq__items">
+                ${store.state.done_items.map(item => {
+            return `
+                        <li><p class="value">${item}</p></li>
+                    `
+        }).join('')}
+            </ul>
+        `;
     }
 };

@@ -110,7 +110,7 @@ function eventDelegate  (parentSelector, targetSelector, events, foo) {
     }
 }
 function editItem (event){
-    if(event.target.nodeName.toLocaleLowerCase === 'li')
+    if(event.target.nodeName.toLocaleLowerCase === 'p')
     {
         let item = event.target;
         let parentItem = item.parentElement;
